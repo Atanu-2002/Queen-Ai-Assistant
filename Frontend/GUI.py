@@ -81,7 +81,7 @@ class ChatSelection(QWidget):
         layout = QVBoxLayout(self)
         layout.setContentsMargins(-10, 40, 40, 100)
         layout.setSpacing(-100)
-        self.chat_text_edit = QTextEdit
+        self.chat_text_edit = QTextEdit()
         self.chat_text_edit.setReadOnly(True)
         self.chat_text_edit.setTextInteractionFlags(Qt.NoTextInteraction)
         self.chat_text_edit.setFrameStyle(QFrame.NoFrame)
@@ -100,8 +100,8 @@ class ChatSelection(QWidget):
         max_gif_size_W = 480
         max_gif_size_H = 270
         movie.setScaledSize(QSize(max_gif_size_W, max_gif_size_H))
-        self.gif_label.setAlignment(Qt.AlignRight | Qt.AlignBotttom)
-        self.gif_label,setMovie(movie)
+        self.gif_label.setAlignment(Qt.AlignRight | Qt.AlignBottom)
+        self.gif_label.setMovie(movie)
         movie.start()
         layout.addWidget(self.gif_label)
         self.label = QLabel("")
@@ -274,7 +274,7 @@ class InitialScreen(QWidget):
 
 class MessageScreen (QWidget): 
 
-        def _init__(self, parent=None): 
+        def __init__(self, parent=None): 
              super()._init__(parent) 
              desktop = QApplication.desktop() 
              screen_width = desktop.screenGeometry().width() 
@@ -282,7 +282,7 @@ class MessageScreen (QWidget):
              layout = QVBoxLayout() 
              label = QLabel("") 
              layout.addWidget(label)
-             chat_section = ChatSection()
+             chat_section = ChatSelection()
              layout.addWidget(chat_section)
              self.setLayout(layout)
              self.setStyleSheet("background-color: black;")
